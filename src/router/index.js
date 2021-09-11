@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import WeatherWidget from '../views/WeatherWidget.vue'
+import WeatherWidget from '../views/Weather.vue'
 
 Vue.use(VueRouter)
 

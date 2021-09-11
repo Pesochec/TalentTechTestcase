@@ -1,6 +1,7 @@
+import WeatherSearchError from '../../helpers/WeatherSearchError'
 
 export default {
-  namespace: true,
+  namespaced: true,
   state: () => ({
     weather: null
   }),
@@ -13,9 +14,22 @@ export default {
 
   actions: {
     async fetchWeather ({ commit }, { city, lang }) {
-      // можно было бы использовать axios, но в данном случае от него нет смысла
-      const data = await fetch(`${process.env.API_URL}/weather?appid=${process.env.API_KEY}&q=${city}&lang=${lang}&units=metric`)
-      return data
+      try {
+        // можно было бы использовать axios, но в данном случае от него нет смысла
+        const response = await fetch(`${process.env.VUE_APP_API_URL}/weather?appid=${process.env.VUE_APP_API_KEY}&q=${city}&lang=${lang}&units=metric`)
+        if (response.status === 404) {
+          throw new WeatherSearchError('City not found', response.status)
+        }
+        const data = await response.json()
+        commit('SET_WEATHER', {
+          weather: data.weather,
+          main: data.main
+        })
+        return data
+      } catch (error) {
+        console.log('Ошибка', error.message)
+        throw error
+      }
     }
   }
 }

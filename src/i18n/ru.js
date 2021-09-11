@@ -4,7 +4,8 @@ export default {
   search: {
     placeholder: 'Поиск',
     inputError: 'Поле должно быть заполнено',
-    responseError: 'Такого города нет',
+    responseError: 'Во время поиска возникла ошибка',
+    cityNotFound: 'Такого города нет',
     history: 'История поиска городов'
   },
   weather: {

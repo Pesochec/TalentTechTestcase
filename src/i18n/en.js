@@ -4,7 +4,8 @@ export default {
   search: {
     placeholder: 'Search',
     inputError: 'The field must be filled',
-    responseError: 'This city doesn\'t exist',
+    responseError: 'An error occurred while searching',
+    cityNotFound: 'This city doesn\'t exist',
     history: 'City search history'
   },
   weather: {
