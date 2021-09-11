@@ -28,7 +28,6 @@
           v-for="(item, index) in langs"
           :key="index"
           @click.prevent="changeLang(item)"
-
         >
           {{ item }}
         </v-list-item>
@@ -38,18 +37,19 @@
 </template>
 
 <script>
+import currentLang from '../mixins/currentLang'
+
 export default {
   name: 'TheToolBar',
+  mixins: [currentLang],
   computed: {
     langs () {
       return Object.keys(this.$vuetify.lang.locales)
-    },
-    currentLang () {
-      return this.$vuetify.lang.current
     }
   },
   methods: {
     changeLang (lang) {
+      if (this.currentLang === lang) return
       this.$vuetify.lang.current = lang
       this.$router.push({
         query: {

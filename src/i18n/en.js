@@ -2,6 +2,7 @@
 export default {
   refresh: 'Refresh',
   search: {
+    button: 'Search',
     placeholder: 'Search',
     inputError: 'The field must be filled',
     responseError: 'An error occurred while searching',
@@ -12,17 +13,27 @@ export default {
     wind: {
       speed: {
         measure: 'meter/sec',
-        name: 'Speed',
+        name: 'Wind Speed',
         gust: 'Gust'
       },
-      temperature: {
-        temperature: 'Temperature',
-        feelsLike: 'Feels Like',
-        min_temp: 'Minimum temperature',
-        max_temp: 'Maximum temperature'
-      },
-      humidity: 'Humidity',
-      pressure: 'Pressure'
+      direction: {
+        s: 'South',
+        w: 'West',
+        e: 'East',
+        n: 'North'
+      }
+    },
+    temperature: {
+      temperature: 'Temperature',
+      feelsLike: 'Feels Like',
+      minTemp: 'Minimum temperature',
+      maxTemp: 'Maximum temperature'
+    },
+    humidity: 'Humidity',
+    state: 'State',
+    pressure: {
+      name: 'Pressure',
+      measure: 'Mercury column'
     }
   }
 }

@@ -16,23 +16,9 @@ export default {
   name: 'App',
   components: { TheToolBar },
   mixins: [currentLang],
-  created () {
-    this.$vuetify.lang.current = this.$route.query?.lang || 'en'
-  },
   computed: {
     langs () {
       return Object.keys(this.$vuetify.lang.locales)
-    }
-  },
-  methods: {
-    changeLang (lang) {
-      this.$vuetify.lang.current = lang
-      this.$router.push({
-        query: {
-          ...this.$route.query,
-          lang
-        }
-      })
     }
   }
 }
